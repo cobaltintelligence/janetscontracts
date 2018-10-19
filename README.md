@@ -10,7 +10,7 @@ This tool reads from a local spreadsheet and sends the user a Slack notification
 3. Internet connection
 
 ## Installation
-1. Install the source code
+1. Download the source code
 ```
 $ git clone https://github.com/cobaltintelligence/janetscontracts.git
 ```
