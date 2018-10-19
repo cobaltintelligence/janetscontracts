@@ -12,11 +12,13 @@ import dateutil
 import moment
 
 ## SHEET CONFIG
-SPREADSHEET_FILEPATH = "./demosheet.xlsx"
-SHEET_NAME = "Sheet1"
-STARTING_ROW = 2
-EXPIRATION_COL_NAME = "Expiration"
-NAME_COL_NAME = "Name"
+json_data = open('config.json').read()
+config = json.loads(json_data )
+SPREADSHEET_FILEPATH = config['SPREADSHEET_FILEPATH']
+SHEET_NAME = config['SHEET_NAME']
+STARTING_ROW = int(config['STARTING_ROW'])
+EXPIRATION_COL_NAME = config['EXPIRATION_COL_NAME']
+NAME_COL_NAME = config['NAME_COL_NAME']
 
 ## SERVER CONFIG
 REQUEST_ENDPOINT = "https://hooks.slack.com/services/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"

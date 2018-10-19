@@ -1,0 +1,8 @@
+{
+	"SPREADSHEET_FILEPATH": "./demosheet.xlsx",
+	"SHEET_NAME": "Sheet1",
+	"STARTING_ROW": 2,
+	"EXPIRATION_COL_NAME": "Expiration",
+	"NAME_COL_NAME": "Name",
+	"REQUEST_ENDPOINT": "https://hooks.slack.com/services/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"
+}
