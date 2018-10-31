@@ -9,6 +9,7 @@ import requests
 import json
 import pandas as pd
 import dateutil
+import datetime
 from dateutil.parser import parse
 import moment
 import numpy as np
@@ -38,7 +39,7 @@ nat = np.datetime64('NaT')
 def nat_check(nat):
     return nat == np.datetime64('NaT')
 
-now = moment.now()
+now = datetime.datetime.now()
 
 
 notifs = []
@@ -46,11 +47,9 @@ MAX_ROWS = 10
 count = 0
 for index, row in schedule.iterrows():
 	expiration_string = row[EXPIRATION_COL_NAME]
-	expiration = parse(expiration_string)
-	# if NaT
-	print(expiration)
-	if pd.isnull(expiration):
-		print("invalid date")
+	try:
+		expiration = parse(str(expiration_string))
+	except:
 		continue
 
 	# if it's already past
@@ -58,7 +57,7 @@ for index, row in schedule.iterrows():
 		continue
 	
 	# if it's not for a week
-	if expiration > now.add(weeks=3):
+	if expiration > now + datetime.timedelta(days=21):
 		continue
 
 	notifs.append(row)
@@ -70,7 +69,7 @@ for index, row in schedule.iterrows():
 out_text = "Hello! You have "
 
 if len(notifs) > 0:
-	out_text = out_text + "the following tasks due within the next two weeks:\n"
+	out_text = out_text + "the following tasks due within the next three weeks:\n"
 	for row in notifs:
 		name = row[NAME_COL_NAME]
 		exp_date = str(row[EXPIRATION_COL_NAME].date())
@@ -79,7 +78,7 @@ else:
 	out_text = out_text + "no upcoming contract expirations these next two weeks."
 
 message_data = {"text": out_text}
-
+print(out_text)
 try:
     r = requests.post(
 		REQUEST_ENDPOINT, 
