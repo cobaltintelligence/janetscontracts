@@ -1,2 +1,2 @@
 env EDITOR=emacs crontab -e
-0 12 * * *  cd ~/dev/janetscontracts/ && ./contracts.sh
+0 12 * * *  cd ~/dev/janetscontracts/ && bash ./contracts.sh; git pull
