@@ -48,7 +48,7 @@ for index, row in schedule.iterrows():
 	expiration_string = row[EXPIRATION_COL_NAME]
 	expiration = parse(expiration_string)
 	# if NaT
-	print(expiration)
+	
 	if pd.isnull(expiration):
 		print("invalid date")
 		continue

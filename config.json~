@@ -1,7 +1,7 @@
 {
 	"SPREADSHEET_FILEPATH": "/Users/janetwoolman/Google Drive File Stream/My Drive/Tracking Databases/Contract_Management_Database.xlsx",
 	"SHEET_NAME": "Contracts",
-	"STARTING_ROW": 7,
+	"STARTING_ROW": 8,
 	"EXPIRATION_COL_NAME": "Expiration",
 	"NAME_COL_NAME": "Name",
 	"REQUEST_ENDPOINT": "https://hooks.slack.com/services/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"
